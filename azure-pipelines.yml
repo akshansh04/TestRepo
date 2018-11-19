@@ -29,3 +29,10 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    
+- task: AzureResourceGroupDeployment@2
+  displayName: 'Azure Deployment:Start action on BlotMe'
+  inputs:
+    azureSubscription: 'Visual Studio Enterprise (6b990189-7ebe-4e30-96a0-c9da0378de81)'
+    action: Start
+    resourceGroupName: BlotM
