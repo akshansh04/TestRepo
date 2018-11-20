@@ -27,6 +27,13 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    
+- task: AzureResourceGroupDeployment@2
+  displayName: 'Azure Deployment:Start action on ankhokha-update'
+  inputs:
+    azureSubscription: 'Aksriv-Conn1'
+    action: Start
+    resourceGroupName: 'ankhokha-update'
 
 
 
