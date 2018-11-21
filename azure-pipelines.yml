@@ -31,7 +31,7 @@ steps:
 - task: AzureResourceGroupDeployment@2
   displayName: 'Azure Deployment:Start action on ankhokha-update'
   inputs:
-    azureSubscription: 'Dev'
+    azureSubscription: 'Newest-aksriv'
     action: Start
     resourceGroupName: 'ankhokha-update'
 
