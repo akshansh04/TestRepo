@@ -12,7 +12,7 @@ variables:
 jobs:
 - deployment: DeployWeb
   displayName: Deploy aksriv test
-  environment: 'smarthotel-dev.bookings'
+  environment: 'smarthotel-dev.default'
   strategy: 
       runOnce:
         deploy:
