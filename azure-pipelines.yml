@@ -9,19 +9,19 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
-steps:
-- task: NuGetToolInstaller@0
+jobs:
+- deployment: DeployWeb
+  displayName: Deploy aksriv
+  environment: 'smarthotel-dev.bookings'
+  strategy: 
+      runOnce:
+        deploy:
+          steps:
+            - task: NuGetToolInstaller@0
 
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
-    
-- task: AzureResourceGroupDeployment@2
-  displayName: 'Azure Deployment:Start action on ankhokha-update 1'
-  inputs:
-    azureSubscription: 'ARM-aksriv'
-    action: Start
-    resourceGroupName: 'ankhokha-update'
+            - task: NuGetCommand@2
+              inputs:
+                restoreSolution: '$(solution)'
 
 
 
