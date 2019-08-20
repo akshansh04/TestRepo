@@ -17,7 +17,7 @@ steps:
     restoreSolution: '$(solution)'
     
 - task: AzureResourceGroupDeployment@2
-  displayName: 'Azure Deployment:Start action on ankhokha-update'
+  displayName: 'Azure Deployment:Start action on ankhokha-update 1'
   inputs:
     azureSubscription: 'ARM-aksriv'
     action: Start
