@@ -3,25 +3,40 @@
 # Add steps that publish symbols, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4123
 
+trigger:
+- master
 
-variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
-
-jobs:
-- deployment: DeployWeb
-  displayName: Deploy aksriv Job1
-  environment: 'smarthotel-dev.default'
-  strategy: 
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:  
+  - job: Build
+    displayName: Build job
+    steps:
+    - script: | 
+        echo Hello, world !! 
+        echo Replace me with your build steps !!
+      displayName: 'Build'
+    - powershell: Write-Host "Run unit tests for your application..."        
+      displayName: 'Unit Testing'
+    - task: PublishPipelineArtifact@0
+      displayName: Publish Artifacts
+      inputs:
+        artifactName: drop
+        targetPath: '$(Build.SourcesDirectory)'
+- stage: Deploy
+  jobs:
+  - deployment: DeployJob
+    displayName: Deploy Job2
+    pool:
+      vmImage: Ubuntu-16.04
+    environment: staging
+    strategy:
       runOnce:
         deploy:
           steps:
-            - task: NuGetToolInstaller@0
+          - script: echo Hello
 
-            - task: NuGetCommand@2
-              inputs:
-                restoreSolution: '$(solution)'
 
 
 
