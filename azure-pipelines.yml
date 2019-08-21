@@ -11,7 +11,7 @@ variables:
 
 jobs:
 - deployment: DeployWeb
-  displayName: Deploy aksriv test
+  displayName: Deploy aksriv Job1
   environment: 'smarthotel-dev.default'
   strategy: 
       runOnce:
