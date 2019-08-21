@@ -27,7 +27,7 @@ stages:
 - stage: Deploy
   jobs:
   - deployment: DeployJob
-    displayName: Deploy Job
+    displayName: Deploy Job-1
     pool:
       vmImage: Ubuntu-16.04
     environment: staging
