@@ -8,7 +8,7 @@ trigger:
 
 stages:
 - stage: Build
-  displayName: Build stage
+  displayName: Build stage 1
   jobs:  
   - job: Build
     displayName: Build job
