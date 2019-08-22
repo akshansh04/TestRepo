@@ -21,11 +21,7 @@ stages:
       displayName: 'Build'
     - powershell: Write-Host "Run unit tests for your application..."        
       displayName: 'Unit Testing'
-    - task: PublishPipelineArtifact@0
-      displayName: Publish Artifacts
-      inputs:
-        artifactName: drop
-        targetPath: '$(Build.SourcesDirectory)'
+
 - stage: Deploy
   jobs:
   - deployment: DeployJob
