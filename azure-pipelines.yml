@@ -12,6 +12,8 @@ stages:
   jobs:  
   - job: Build
     displayName: Build job
+    pool:
+      name: Default
     steps:
     - script: | 
         echo Hello, world !! 
